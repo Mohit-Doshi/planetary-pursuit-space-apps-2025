@@ -412,9 +412,12 @@ function App() {
                     }}
                   >
                     <div className="planet-surface">
-                      <div className="planet-features"></div>
+                      <div className={`planet-features ${bestCandidate.id.replace('_', '')}-features`}></div>
+                      <div className="planet-terminator"></div>
+                      <div className="planet-highlights"></div>
                     </div>
                     <div className="planet-atmosphere"></div>
+                    {bestCandidate.image.atmosphere === 'Dense' && <div className="planet-clouds"></div>}
                   </div>
                   
                   <div className="planet-description">
