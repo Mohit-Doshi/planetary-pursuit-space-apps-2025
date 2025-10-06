@@ -93,6 +93,14 @@ const exoplanets = [
     temperature: '234 K (-39°C)',
     orbital_period: '11.2 days',
     star_type: 'Red Dwarf',
+    image: {
+      primaryColor: '#8B4513',
+      secondaryColor: '#A0522D',
+      surfaceType: 'Rocky Desert',
+      atmosphere: 'Thin',
+      features: ['Craters', 'Rocky Terrain', 'Red Dust'],
+      description: 'A cold, rocky world with a thin atmosphere, showing signs of geological activity and potential water ice at the poles.'
+    },
     criteria: {
       habitable_zone: true,
       rocky_composition: true,
@@ -116,6 +124,14 @@ const exoplanets = [
     temperature: '251 K (-22°C)',
     orbital_period: '6.1 days',
     star_type: 'Ultra-cool Dwarf',
+    image: {
+      primaryColor: '#4169E1',
+      secondaryColor: '#87CEEB',
+      surfaceType: 'Ocean World',
+      atmosphere: 'Dense',
+      features: ['Oceans', 'Ice Caps', 'Clouds'],
+      description: 'A potentially ocean-covered world with a dense atmosphere, possibly featuring vast liquid water oceans and ice caps.'
+    },
     criteria: {
       habitable_zone: true,
       rocky_composition: true,
@@ -139,6 +155,14 @@ const exoplanets = [
     temperature: '233 K (-40°C)',
     orbital_period: '112.3 days',
     star_type: 'K-type Star',
+    image: {
+      primaryColor: '#228B22',
+      secondaryColor: '#32CD32',
+      surfaceType: 'Super Earth',
+      atmosphere: 'Moderate',
+      features: ['Continents', 'Oceans', 'Mountains', 'Forests'],
+      description: 'A super-Earth with a diverse landscape featuring continents, oceans, and potentially lush vegetation under a stable atmosphere.'
+    },
     criteria: {
       habitable_zone: true,
       rocky_composition: true,
@@ -162,6 +186,14 @@ const exoplanets = [
     temperature: '188 K (-85°C)',
     orbital_period: '129.9 days',
     star_type: 'M-type Star',
+    image: {
+      primaryColor: '#2F4F4F',
+      secondaryColor: '#708090',
+      surfaceType: 'Frozen World',
+      atmosphere: 'Thin',
+      features: ['Ice Sheets', 'Frozen Oceans', 'Rocky Outcrops'],
+      description: 'A cold, frozen world with extensive ice sheets and frozen oceans, featuring rocky outcrops emerging from the ice.'
+    },
     criteria: {
       habitable_zone: true,
       rocky_composition: true,
@@ -185,6 +217,14 @@ const exoplanets = [
     temperature: '277 K (4°C)',
     orbital_period: '28.1 days',
     star_type: 'M-type Star',
+    image: {
+      primaryColor: '#8B4513',
+      secondaryColor: '#DEB887',
+      surfaceType: 'Rocky Super Earth',
+      atmosphere: 'Dense',
+      features: ['Deserts', 'Mountains', 'Valleys', 'Atmospheric Clouds'],
+      description: 'A massive rocky super-Earth with a dense atmosphere, featuring vast deserts, towering mountains, and atmospheric cloud systems.'
+    },
     criteria: {
       habitable_zone: true,
       rocky_composition: true,
@@ -359,6 +399,32 @@ function App() {
                   <div className="detail-item">
                     <div className="detail-label">Star Type</div>
                     <div className="detail-value">{bestCandidate.star_type}</div>
+                  </div>
+                </div>
+
+                {/* Planet Image Panel */}
+                <div className="planet-image-panel">
+                  <div 
+                    className="planet-visualization"
+                    style={{
+                      '--primary-color': bestCandidate.image.primaryColor,
+                      '--secondary-color': bestCandidate.image.secondaryColor
+                    }}
+                  >
+                    <div className="planet-surface">
+                      <div className="planet-features"></div>
+                    </div>
+                    <div className="planet-atmosphere"></div>
+                  </div>
+                  
+                  <div className="planet-description">
+                    <h3>{bestCandidate.image.surfaceType}</h3>
+                    <p>{bestCandidate.image.description}</p>
+                    <div className="planet-features-list">
+                      {bestCandidate.image.features.map((feature, index) => (
+                        <span key={index} className="feature-tag">{feature}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
