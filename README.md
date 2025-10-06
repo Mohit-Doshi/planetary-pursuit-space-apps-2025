@@ -2,8 +2,7 @@
 
 An interactive web application for analyzing exoplanet habitability based on scientific criteria. Select habitability factors to find the best exoplanet candidates for potential life.
 
-<img width="1920" height="958" alt="Screenshot 2025-10-06 at 12 33 11 AM" src="https://github.com/user-attachments/assets/ee3b55e5-fdd0-4b79-96a9-600ad364ae6d" />
-
+<img width="1920" height="960" alt="Screenshot 2025-10-06 at 12 34 39 AM" src="https://github.com/user-attachments/assets/cec75c60-6b7d-43cb-a05c-624c42413d38" />
 
 ## 🚀 Getting Started
 
