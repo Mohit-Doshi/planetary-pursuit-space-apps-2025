@@ -308,7 +308,7 @@ function App() {
             WebkitTextFillColor: 'transparent',
             marginBottom: '16px'
           }}>
-            Exoplanet Habitability Analyzer
+            Planetary Pursuit: Exoplanet Habitability Analyzer
           </h1>
           <p style={{ fontSize: '1.2em', color: '#94a3b8', maxWidth: '600px', margin: '0 auto' }}>
             Select habitability criteria to find the best exoplanet candidate for potential life
@@ -404,21 +404,33 @@ function App() {
 
                 {/* Planet Image Panel */}
                 <div className="planet-image-panel">
-                  <div 
-                    className="planet-visualization"
-                    style={{
-                      '--primary-color': bestCandidate.image.primaryColor,
-                      '--secondary-color': bestCandidate.image.secondaryColor
-                    }}
-                  >
-                    <div className="planet-surface">
-                      <div className={`planet-features ${bestCandidate.id.replace('_', '')}-features`}></div>
-                      <div className="planet-terminator"></div>
-                      <div className="planet-highlights"></div>
+                  {bestCandidate.image && bestCandidate.image.url ? (
+                    <div className="planet-photo-wrapper">
+                      <img
+                        src={bestCandidate.image.url}
+                        alt={`${bestCandidate.name} artist impression`}
+                        className="planet-photo"
+                      />
+                      <div className="planet-photo-atmosphere" />
+                      <div className="planet-photo-gloss" />
                     </div>
-                    <div className="planet-atmosphere"></div>
-                    {bestCandidate.image.atmosphere === 'Dense' && <div className="planet-clouds"></div>}
-                  </div>
+                  ) : (
+                    <div 
+                      className="planet-visualization"
+                      style={{
+                        '--primary-color': bestCandidate.image.primaryColor,
+                        '--secondary-color': bestCandidate.image.secondaryColor
+                      }}
+                    >
+                      <div className="planet-surface">
+                        <div className={`planet-features ${bestCandidate.id.replace('_', '')}-features`}></div>
+                        <div className="planet-terminator"></div>
+                        <div className="planet-highlights"></div>
+                      </div>
+                      <div className="planet-atmosphere"></div>
+                      {bestCandidate.image.atmosphere === 'Dense' && <div className="planet-clouds"></div>}
+                    </div>
+                  )}
                   
                   <div className="planet-description">
                     <h3>{bestCandidate.image.surfaceType}</h3>
